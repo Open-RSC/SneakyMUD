@@ -1,11 +1,11 @@
 #include "../include/external/catch.hpp"
-#include "../include/Server.h"
+#include "../include/Server.hpp"
 
 SCENARIO("Server", "[server]") {
 
-    GIVEN("A vector with some items") {
-        Server server("test");
-        REQUIRE_FALSE(server.name_.empty());
-        REQUIRE(server.name_ == "test");
+    GIVEN("A server with name test") {
+        sneaky::Server server("test");
+        REQUIRE_FALSE(server.getName().empty());
+        REQUIRE(server.getName() == "test");
     }
 }

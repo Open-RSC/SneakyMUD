@@ -1,1 +1,2 @@
-#include "../../include/IO/Net235.h"
+#include "../../include/IO/Net235.hpp"
+using namespace sneaky;

@@ -1,7 +1,8 @@
-﻿#include "../include/SneakyMUD.h"
-#include "../include/Server.h"
+﻿#include <iostream>
+#include "../include/Server.hpp"
 
 int main() {
-    std::cout << "Welcome to SneakyMUD";
+    sneaky::Server server("SneakyMUD");
+    std::cout << server.getName() << " started." << std::endl;
     return 0;
 }

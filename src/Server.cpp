@@ -1,9 +1,9 @@
-#include "../include/Server.h"
+#include "../include/Server.hpp"
+using namespace sneaky;
 
-Server::Server(std::string name){
-	this->name_ = name;
+Server::Server(const std::string& a_name) : m_name(a_name) {
 }
 
-Server::~Server() {
-	
+const std::string& Server::getName() {
+	return m_name;
 }

@@ -1,5 +1,2 @@
-#include "../../include/IO/IOHandler.h"
-
-IOHandler::~IOHandler() {
-
-}
+#include "../../include/IO/IOHandler.hpp"
+using namespace sneaky;

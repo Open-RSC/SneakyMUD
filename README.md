@@ -11,3 +11,7 @@ cd build
 cmake ..
 cmake --build .
 ```
+
+When contributing to this project, follow the syntax guidelines here:
+
+https://github.com/lefticus/cppbestpractices/blob/master/SUMMARY.md
