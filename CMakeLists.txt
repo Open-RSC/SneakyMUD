@@ -9,7 +9,9 @@ list(APPEND SOURCE_FILES
 	"include/external/asio.hpp"
 	"src/Server.cpp" "include/Server.hpp"
 	"src/IO/IOHandler.cpp" "include/IO/IOHandler.hpp"
-	"src/IO/Net235.cpp" "include/IO/Net235.hpp"
+	"src/IO/Net/Net235.cpp" "include/IO/Net/Net235.hpp"
+	"src/IO/Net/Connection.cpp" "include/IO/Net/Connection.hpp"
+	"src/IO/Net/ConnectionManager.cpp" "include/IO/Net/ConnectionManager.hpp"
 )
 
 add_library(SneakyLib ${SOURCE_FILES})
