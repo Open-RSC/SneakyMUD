@@ -5,11 +5,14 @@
 namespace sneaky {
 namespace IO {
 namespace Net {
-	class Connection : public std::enable_shared_from_this<Connection> {
+	class Connection {
 	public:
-		Connection(asio::ip::tcp::socket a_socket);
-		const asio::ip::tcp::socket& getSocket();
+		explicit Connection(asio::ip::tcp::socket a_socket);
+		asio::ip::tcp::endpoint getEndpoint();
+		asio::ip::tcp::socket* getSocket();
+		char* getBuffer();
 	private:
-		const asio::ip::tcp::socket m_socket;
+		asio::ip::tcp::socket m_socket;
+		char m_readBuffer[5000];
 	};
 }}}
