@@ -10,7 +10,7 @@ namespace Net {
 	public:
 		Net235(const int& a_port);
 		virtual void onConnect(std::shared_ptr<Connection> a_connection);
-		virtual void onTimeout(std::shared_ptr<Connection> a_connection);
+		virtual void onDisconnect(std::shared_ptr<Connection> a_connection);
 	private:
 		
 	};

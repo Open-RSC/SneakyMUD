@@ -11,6 +11,6 @@ void Net235::onConnect(std::shared_ptr<Connection> a_connection) {
 
 }
 
-void Net235::onTimeout(std::shared_ptr<Connection> a_connection) {
+void Net235::onDisconnect(std::shared_ptr<Connection> a_connection) {
 
 }
