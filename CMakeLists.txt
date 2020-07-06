@@ -10,8 +10,9 @@ list(APPEND SOURCE_FILES
 	"src/Server.cpp" "include/Server.hpp"
 	"src/IO/IOHandler.cpp" "include/IO/IOHandler.hpp"
 	"src/IO/Net/Net235.cpp" "include/IO/Net/Net235.hpp"
+	"src/IO/Net/PIDContainer.cpp" "include/IO/Net/PIDContainer.hpp"
 	"src/IO/Net/Connection.cpp" "include/IO/Net/Connection.hpp"
-	"src/IO/Net/ConnectionManager.cpp" "include/IO/Net/ConnectionManager.hpp"
+	"src/IO/Net/NetworkHandler.cpp" "include/IO/Net/NetworkHandler.hpp"
 )
 
 add_library(SneakyLib ${SOURCE_FILES})
