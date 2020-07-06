@@ -14,6 +14,9 @@ std::shared_ptr<Connection> PIDContainer::getUserByPID(const int& a_PID) {
 
 bool PIDContainer::add(std::shared_ptr<Connection> a_connection)
 {
+    if (a_connection == nullptr)
+        return false;
+
     std::lock_guard<std::mutex> lock(m_listMutex);
 
     if (m_curConnections == m_maxConnections)
@@ -32,6 +35,9 @@ bool PIDContainer::add(std::shared_ptr<Connection> a_connection)
 }
 
 bool PIDContainer::remove(std::shared_ptr<Connection> a_connection) {
+    if (a_connection == nullptr)
+        return false;
+
     std::lock_guard<std::mutex> lock(m_listMutex);
     int size = std::min(m_maxConnections, (int)m_users.size());
     for (int i = 0; i < size; ++i) {

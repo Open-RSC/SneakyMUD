@@ -46,5 +46,10 @@ SCENARIO("PIDContainer", "[pidcontainer]") {
         REQUIRE(pidContainer.remove(conn3));
         REQUIRE(pidContainer.getUserByPID(0) == nullptr);
         REQUIRE(pidContainer.getCurrentConn() == 0);
+
+        //Add/remove nullptr
+
+        REQUIRE_FALSE(pidContainer.add(nullptr));
+        REQUIRE_FALSE(pidContainer.remove(nullptr));
     }
 }
