@@ -40,7 +40,7 @@ NetworkHandler::NetworkHandler(const int& a_port, const int& a_maxConnections)
              }
              else {
                  for (int i = 0; i < length; i++)
-                     std::cout << std::hex << a_connection->getBuffer()[i] << " ";
+                     std::cout << std::hex << (int)(a_connection->getBuffer()[i] & 0xFF) << " ";
                  std::cout << std::endl;
                  awaitBody(a_connection, 4);
              }
@@ -57,7 +57,7 @@ NetworkHandler::NetworkHandler(const int& a_port, const int& a_maxConnections)
              }
              else {
                  for (int i = 0; i < length; i++)
-                     std::cout << std::hex << a_connection->getBuffer()[i] << " ";
+                     std::cout << std::hex << (int)(a_connection->getBuffer()[i] & 0xFF) << " ";
                  std::cout << std::endl;
                  awaitHeader(a_connection);
              }

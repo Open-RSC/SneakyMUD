@@ -10,6 +10,10 @@ namespace Net {
 		PIDContainer(const int& a_maxConnections);
 		bool add(std::shared_ptr<Connection> a_connection);
 		bool remove(std::shared_ptr<Connection> a_connection);
+
+		const int& getMaxConn();
+		const int& getCurrentConn();
+		std::shared_ptr<Connection> getUserByPID(const int& a_PID);
 	private:
 		std::mutex m_listMutex;
 		const int m_maxConnections{ 0 };

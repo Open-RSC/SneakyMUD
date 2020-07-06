@@ -1,11 +1,16 @@
 #include "../../../include/IO/Net/PIDContainer.hpp"
+#include "../../../include/IO/Net/Connection.hpp"
 #include <iostream>
+#include <memory>
 
 using namespace sneaky::IO::Net;
 
 PIDContainer::PIDContainer(const int& a_maxConnections) : m_users(5, nullptr), m_maxConnections(a_maxConnections) {
 }
 
+std::shared_ptr<Connection> PIDContainer::getUserByPID(const int& a_PID) {
+    return m_users[a_PID];
+}
 
 bool PIDContainer::add(std::shared_ptr<Connection> a_connection)
 {
@@ -38,4 +43,12 @@ bool PIDContainer::remove(std::shared_ptr<Connection> a_connection) {
     }
 
     return false;
+}
+
+const int& PIDContainer::getMaxConn() {
+    return m_maxConnections;
+}
+
+const int& PIDContainer::getCurrentConn() {
+    return m_curConnections;
 }
