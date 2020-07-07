@@ -1,5 +1,4 @@
 #include "../../../include/IO/Net/NetworkHandler.hpp"
-#include "../../../include/external/asio.hpp"
 #include <iostream>
 #include <forward_list>
 
@@ -30,7 +29,7 @@ NetworkHandler::NetworkHandler(const int& a_port, const int& a_maxConnections)
      return &m_ioService;
  }
 
- void NetworkHandler::awaitHeader(const std::shared_ptr<Connection> a_connection) {
+ void NetworkHandler::awaitHeader(const std::shared_ptr<Connection>& a_connection) {
      //TODO Config variable for header size?
      asio::async_read(*a_connection->getSocket(), asio::buffer(a_connection->getBuffer(), 4),
          [this, a_connection](asio::error_code ec, std::size_t length) {
@@ -48,7 +47,7 @@ NetworkHandler::NetworkHandler(const int& a_port, const int& a_maxConnections)
      );
  }
 
- void NetworkHandler::awaitBody(const std::shared_ptr<Connection> a_connection, const int& bytes) {
+ void NetworkHandler::awaitBody(const std::shared_ptr<Connection>& a_connection, const int& bytes) {
      asio::async_read(*a_connection->getSocket(), asio::buffer(a_connection->getBuffer(), bytes),
          [this, a_connection](asio::error_code ec, std::size_t length) {
              if (ec == asio::error::eof || ec == asio::error::connection_reset) {

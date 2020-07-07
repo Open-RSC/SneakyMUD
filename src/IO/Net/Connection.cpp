@@ -1,9 +1,8 @@
-#include "../../../include/external/asio.hpp"
 #include "../../../include/IO/Net/Connection.hpp"
 #include <iostream>
 
 using namespace sneaky::IO::Net;
-Connection::Connection(asio::ip::tcp::socket a_socket) : m_socket(std::move(a_socket)){
+Connection::Connection(asio::ip::tcp::socket a_socket) : m_socket(std::move(a_socket)), m_readBuffer(){
 }
 
 char* Connection::getBuffer() {

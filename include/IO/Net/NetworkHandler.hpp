@@ -10,8 +10,8 @@ namespace Net {
 	class NetworkHandler {
 	public:
 		NetworkHandler(const int& a_port, const int& a_maxConnections);
-		virtual void onConnect(std::shared_ptr<Connection> a_connection) = 0;
-		virtual void onDisconnect(std::shared_ptr<Connection> a_connection) = 0;
+		virtual void onConnect(const std::shared_ptr<Connection>& a_connection) = 0;
+		virtual void onDisconnect(const std::shared_ptr<Connection>& a_connection) = 0;
 
 		asio::io_service* getIOService();
 		void listen();
@@ -19,11 +19,11 @@ namespace Net {
 		asio::io_service m_ioService;
 		asio::ip::tcp::acceptor m_acceptor;
 		PIDContainer m_connections;
-		void awaitHeader(std::shared_ptr<Connection> a_connection);
-		void awaitBody(std::shared_ptr<Connection> a_connection, const int& bytes);
+		void awaitHeader(const std::shared_ptr<Connection>& a_connection);
+		void awaitBody(const std::shared_ptr<Connection>& a_connection, const int& bytes);
 	};
 
-	enum Protocol {
+	enum class Protocol {
 		p204,
 		p235
 	};

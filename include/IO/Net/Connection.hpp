@@ -13,6 +13,6 @@ namespace Net {
 		char* getBuffer();
 	private:
 		asio::ip::tcp::socket m_socket;
-		char m_readBuffer[5000]{ '\0' };
+		char m_readBuffer[5000];
 	};
 }}}
