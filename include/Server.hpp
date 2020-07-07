@@ -12,6 +12,7 @@ namespace sneaky{
 
         void start();
     private:
+        void loop();
         const std::string m_name{ "default" };
         const IO::Net::Protocol m_protocol;
         std::shared_ptr<IO::Net::NetworkHandler> m_networkHandler{ nullptr };

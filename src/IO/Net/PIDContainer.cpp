@@ -9,6 +9,7 @@ PIDContainer::PIDContainer(const int& a_maxConnections) : m_users(5, nullptr), m
 }
 
 const std::shared_ptr<Connection>& PIDContainer::getUserByPID(const int& a_PID) {
+    std::lock_guard<std::mutex> lock(m_listMutex);
     return m_users[a_PID];
 }
 

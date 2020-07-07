@@ -3,6 +3,8 @@
 #include "../include/IO/Net/Net235.hpp"
 #include <iostream>
 #include <string>
+#include <thread>
+
 using namespace sneaky;
 
 Server::Server(const std::string& a_name, const int& a_port, const int& a_maxConnections, const IO::Net::Protocol& a_protocol) : m_name(a_name), m_protocol(a_protocol) {
@@ -13,20 +15,32 @@ Server::Server(const std::string& a_name, const int& a_port, const int& a_maxCon
     }
 }
 
+void Server::loop() {
+    while (true) {
+        Sleep(1000);
+    }
+}
+
 void Server::start() {
     if (m_networkHandler == nullptr) {
         std::cerr << "Invalid protocol selected" << std::endl;
         return;
     }
-	std::cout << m_name << " starting.." << std::endl;
-    try {
-        m_networkHandler->listen();
-        m_networkHandler->getIOService()->run();
-    }
-    catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
-    }
+    std::thread t(
+        [this]() {
+            std::cout << m_name << " starting.." << std::endl;
+            try {
+                m_networkHandler->listen();
+                m_networkHandler->getIOService()->run();
+            }
+            catch (std::exception& e) {
+                std::cerr << e.what() << std::endl;
+            }
+        });
+
+    loop();
 }
+
 const std::string& Server::getName() {
 	return m_name;
 }
