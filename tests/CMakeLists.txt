@@ -3,7 +3,7 @@
 add_executable(TestSuite
 	"../include/external/catch.hpp"
 	"TestSuite.cpp"
-	"Server.hpp"
-)
+	"PIDContainer.hpp"
+	)
 
 target_link_libraries(TestSuite SneakyLib)
